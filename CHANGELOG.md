@@ -1,3 +1,7 @@
+## [0.1.2] - 27-NOV-2019
+
+* Theme fix avatar Radius
+
 ## [0.1.1] - 30-NOV-2019
 
 * Added FFContactAvatarModel as a class to pass in all data attributes

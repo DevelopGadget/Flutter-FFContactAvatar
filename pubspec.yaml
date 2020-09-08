@@ -1,7 +1,7 @@
-name: ff_contact_avatar
+name: ff_contact_avatar_remake
 description: Configurable widget for contact avatar, name and message, plus notification badge
-version: 0.1.1
-homepage: https://github.com/55Builds/Flutter-FFContactAvatar
+version: 0.1.2
+homepage: https://github.com/DevelopGadget/Flutter-FFContactAvatar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

@@ -1,3 +1,5 @@
+*Based in the work of 55Build credits https://github.com/55Builds/Flutter-FFContactAvatar*
+
 # ff_contact_avatar
 A highly configurable Column widget for displaying a contact avatar with name and short message.  Library also includes the ability the create a ListView using the FFContactAvatarList Widget or using the convenience functions `fromModelList` (to create a ListView directly, suited to a small number or items) and `fromModelListWithBuilder` (to create a ListView using the .builder approach, suited to a large number of items).
 

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'dart:math' show min;
 
 import 'ff_contact_avatar_model.dart';
-import 'package:ff_contact_avatar/ff-contact-avatar-theme.dart';
+import 'package:ff_contact_avatar_remake/ff-contact-avatar-theme.dart';
 
-export 'package:ff_contact_avatar/ff_contact_avatar_list.dart';
-export 'package:ff_contact_avatar/ff-contact-avatar-theme.dart';
+export 'package:ff_contact_avatar_remake/ff_contact_avatar_list.dart';
+export 'package:ff_contact_avatar_remake/ff-contact-avatar-theme.dart';
 export 'ff_contact_avatar_model.dart';
 
 // ignore: must_be_immutable
@@ -40,8 +40,6 @@ class FFContactAvatar extends StatelessWidget {
     }
   }
 
-  static const double avatarRadius = 31;
-
   String _getInitials() {
     var nameParts = name.split(" ").map((elem) {
       return elem[0];
@@ -57,14 +55,14 @@ class FFContactAvatar extends StatelessWidget {
 
   CircleAvatar _makeImageAvatar() {
     return CircleAvatar(
-      radius: avatarRadius,
+      radius: theme.avatarRadius,
       backgroundImage: this.image.image,
     );
   }
 
   CircleAvatar _makeInitialsAvatar() {
     return CircleAvatar(
-      radius: avatarRadius,
+      radius: theme.avatarRadius,
       child: Text(
         _getInitials(),
         style: theme.initialsTextStyle,
@@ -75,8 +73,7 @@ class FFContactAvatar extends StatelessWidget {
   }
 
   Widget _makeCircleAvatar() {
-    CircleAvatar ca =
-        (image != null) ? _makeImageAvatar() : _makeInitialsAvatar();
+    CircleAvatar ca = (image != null) ? _makeImageAvatar() : _makeInitialsAvatar();
 
     Color badgeColor = showBadge ? theme.badgeColor : Colors.transparent;
 
@@ -84,7 +81,7 @@ class FFContactAvatar extends StatelessWidget {
       onTap: this.onTap,
       child: Material(
         elevation: theme.avatarElevation,
-        borderRadius: BorderRadius.circular(avatarRadius),
+        borderRadius: BorderRadius.circular(theme.avatarRadius),
         child: Stack(
           children: <Widget>[
             ca,

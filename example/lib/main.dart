@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ff_contact_avatar/ff_contact_avatar.dart';
+import 'package:ff_contact_avatar_remake/ff_contact_avatar.dart';
 
 import 'package:english_words/english_words.dart';
 
@@ -41,8 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       name: 'Mr Ed',
       message: 'He\s a horse',
       showBadge: false,
-      image: Image.network(
-          'https://upload.wikimedia.org/wikipedia/commons/8/81/Mister_Ed.JPG'),
+      image: Image.network('https://upload.wikimedia.org/wikipedia/commons/8/81/Mister_Ed.JPG'),
     ),
     FFContactAvatarModel(
       name: 'Mrs Roberts',
