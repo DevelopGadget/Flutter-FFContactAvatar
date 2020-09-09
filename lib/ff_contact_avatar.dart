@@ -12,10 +12,10 @@ export 'ff_contact_avatar_model.dart';
 
 // ignore: must_be_immutable
 class FFContactAvatar extends StatelessWidget {
-  Image image;
+  Widget image;
   String name;
   String message;
-  bool showBadge;
+  bool showBadge, showInitial;
   final FFContactAvatarModel model;
   final VoidCallback onTap;
 
@@ -29,6 +29,7 @@ class FFContactAvatar extends StatelessWidget {
     this.message,
     this.showBadge = false,
     this.onTap,
+    this.showInitial = true,
   }) {
     this.theme = (theme == null) ? FFContactAvatarTheme.defaultTheme : theme;
 
@@ -56,7 +57,10 @@ class FFContactAvatar extends StatelessWidget {
   CircleAvatar _makeImageAvatar() {
     return CircleAvatar(
       radius: theme.avatarRadius,
-      backgroundImage: this.image.image,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(theme.avatarRadius),
+        child: this.image,
+      ),
     );
   }
 
@@ -73,7 +77,8 @@ class FFContactAvatar extends StatelessWidget {
   }
 
   Widget _makeCircleAvatar() {
-    CircleAvatar ca = (image != null) ? _makeImageAvatar() : _makeInitialsAvatar();
+    CircleAvatar ca =
+        (image != null && !this.showInitial) ? _makeImageAvatar() : _makeInitialsAvatar();
 
     Color badgeColor = showBadge ? theme.badgeColor : Colors.transparent;
 

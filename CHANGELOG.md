@@ -1,4 +1,8 @@
-## [0.1.2] - 27-NOV-2019
+## [0.1.3] - 08-SEPT-2020
+
+* Add support for Widget in images 
+
+## [0.1.2] - 07-SEPT-2020
 
 * Theme fix avatar Radius
 
