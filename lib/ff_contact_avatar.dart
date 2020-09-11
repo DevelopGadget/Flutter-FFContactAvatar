@@ -59,15 +59,20 @@ class FFContactAvatar extends StatelessWidget {
     if (this.showLoading)
       return CircleAvatar(
         radius: theme.avatarRadius,
+        backgroundColor: theme.borderColor,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(theme.avatarRadius),
+          borderRadius: BorderRadius.circular(theme.avatarRadius - theme.borderWidth),
           child: CircularProgressIndicator(backgroundColor: theme.foregroundColor),
         ),
       );
     else
       return CircleAvatar(
         radius: theme.avatarRadius,
-        backgroundImage: this.image.image,
+        backgroundColor: theme.borderColor,
+        child: CircleAvatar(
+          radius: theme.avatarRadius - theme.borderWidth,
+          backgroundImage: this.image.image,
+        ),
       );
   }
 

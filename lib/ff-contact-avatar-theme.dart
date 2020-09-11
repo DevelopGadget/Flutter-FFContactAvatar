@@ -11,6 +11,8 @@ class FFContactAvatarTheme {
   final double verticalPadding;
   final double avatarElevation;
   final double itemExtent;
+  final double borderWidth;
+  final Color borderColor;
   final EdgeInsets listPadding;
 
   FFContactAvatarTheme({
@@ -24,7 +26,9 @@ class FFContactAvatarTheme {
     this.verticalPadding = 2,
     this.avatarElevation = 4,
     this.itemExtent = 80,
+    this.borderWidth = 0,
     this.listPadding = kListPadding,
+    this.borderColor = Colors.white,
   });
 
   static const TextStyle kInitialTextStyle = TextStyle(

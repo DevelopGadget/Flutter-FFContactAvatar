@@ -1,3 +1,7 @@
+## [0.1.5] - 10-SEPT-2020
+
+* Add border
+
 ## [0.1.4] - 10-SEPT-2020
 
 * Eliminate Widget for Indicator
