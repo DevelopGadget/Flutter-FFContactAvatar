@@ -12,10 +12,10 @@ export 'ff_contact_avatar_model.dart';
 
 // ignore: must_be_immutable
 class FFContactAvatar extends StatelessWidget {
-  Widget image;
+  Image image;
   String name;
   String message;
-  bool showBadge, showInitial;
+  bool showBadge, showInitial, showLoading;
   final FFContactAvatarModel model;
   final VoidCallback onTap;
 
@@ -30,6 +30,7 @@ class FFContactAvatar extends StatelessWidget {
     this.showBadge = false,
     this.onTap,
     this.showInitial = true,
+    this.showLoading = false,
   }) {
     this.theme = (theme == null) ? FFContactAvatarTheme.defaultTheme : theme;
 
@@ -55,13 +56,19 @@ class FFContactAvatar extends StatelessWidget {
   }
 
   CircleAvatar _makeImageAvatar() {
-    return CircleAvatar(
-      radius: theme.avatarRadius,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(theme.avatarRadius),
-        child: this.image,
-      ),
-    );
+    if (this.showLoading)
+      return CircleAvatar(
+        radius: theme.avatarRadius,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(theme.avatarRadius),
+          child: CircularProgressIndicator(backgroundColor: theme.foregroundColor),
+        ),
+      );
+    else
+      return CircleAvatar(
+        radius: theme.avatarRadius,
+        backgroundImage: this.image.image,
+      );
   }
 
   CircleAvatar _makeInitialsAvatar() {
@@ -77,8 +84,9 @@ class FFContactAvatar extends StatelessWidget {
   }
 
   Widget _makeCircleAvatar() {
-    CircleAvatar ca =
-        (image != null && !this.showInitial) ? _makeImageAvatar() : _makeInitialsAvatar();
+    CircleAvatar ca = ((image != null && !this.showInitial) || this.showLoading)
+        ? _makeImageAvatar()
+        : _makeInitialsAvatar();
 
     Color badgeColor = showBadge ? theme.badgeColor : Colors.transparent;
 
